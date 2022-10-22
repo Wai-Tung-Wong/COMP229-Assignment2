@@ -1,10 +1,10 @@
 <%# index.ejs Wai Tung Wong 301222578 2022-10-14 %>
 <%# include header %> 
-<%- include partials/header.ejs %> 
+<%- include ('partials/header.ejs') %> 
 
 <body class="mainbody">
   <%# included the navigation bar %>
-  <%- include partials/navbar.ejs %> 
+  <%- include ('partials/navbar.ejs') %> 
   <br>
   <h2>Welcome to My Personal Portfolio website - JW Programming</h2>
   <img src="./Assets/images/A1Logo.png" alt="logo" width="1000px" height="200px">
@@ -19,5 +19,5 @@
 
 </body>
 <%# include the Scripts & footer %>
-<%- include partials/footer.ejs %> 
+<%- include ('partials/footer.ejs') %> 
 </html>

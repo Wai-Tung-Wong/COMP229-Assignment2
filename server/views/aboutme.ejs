@@ -1,10 +1,10 @@
 <%# aboutme.ejs Wai Tung Wong 301222578 2022-10-14 %>
 <%# include header %>
-<%- include partials/header.ejs %> 
+<%- include ('partials/header.ejs') %> 
 
 <body class="mainbody">
   <%# included the navigation bar %>
-  <%- include partials/navbar.ejs %> 
+  <%- include ('partials/navbar.ejs') %> 
 
   <img class="myPhoto" src="./Assets/images/myPhoto.jpg" alt="My photo" height="525px" width="385px">
   <br><br>
@@ -15,5 +15,5 @@
   <h4>To view my resume please click here: <a href="./Assets/images/Resume.pdf">Resume</a></h4>
 </body>
 <%# include the Scripts & footer %>
-<%- include partials/footer.ejs %> 
+<%- include ('partials/footer.ejs') %> 
 </html>
