@@ -1,0 +1,40 @@
+<%# contact.ejs Wai Tung Wong 301222578 2022-10-14 %>
+<%# include header %> 
+<%- include partials/header.ejs %> 
+
+<body class="mainbody">
+    <%# included the navigation bar %>
+    <%- include partials/navbar.ejs %> 
+    <br>
+    <table>
+        <tr>
+            <th><h3>My contact:</h3></th>
+            <th></th>
+        </tr>
+        <tr>
+            <th><h4>Email:</h4></th>
+            <th><h4>p0722072@gmail.com</h4></th>
+        </tr>
+        <tr>
+            <th><h4>Phone:</h4></th>
+            <th><h4>+1 123 321 1234</h4></th>
+        </tr>
+    </table><hr>
+    <h4>If you would like to contact me please fill in this contact form.</h4><br>
+    <form>
+        <h4>Contact Form:</h4><br>
+        <label for="name">Please enter your full name:</label>
+        <input name="name" id="name" type="text" required><br><br>
+        <label for="email">Please enter your email:</label>
+        <input name="email" id="email" type="email" required><br><br>
+        <label for="phone">Please enter your phone number (optional):</label>
+        <input name="phone" id="phone" type="text"><br><br>
+        <label name="msg">Any message for me:</label><br>
+        <textarea name="msg" id="msg" rows="5" cols="70"></textarea><br><br>
+        <input type="submit" value="Submit">
+        <button type="button" onclick="backToHome()">Back to Home page</button>
+    </form>
+</body>
+<%# include the Scripts & footer %>
+<%- include partials/footer.ejs %> 
+</html>
