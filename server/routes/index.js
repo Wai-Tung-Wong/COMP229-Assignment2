@@ -1,27 +1,33 @@
-//index.js Wai Tung Wong 301222578 2022-10-14
+let express = require('express');
+let router = express.Router();
+let indexController = require('../controllers/index');
 
-var express = require('express');
-var router = express.Router();
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Home' });
-});
+router.get('/', indexController.displayHomePage); 
+/* GET home page. */
+router.get('/home', indexController.displayHomePage); 
+/* GET About Us page. */
+router.get('/aboutme', indexController.displayAboutPage);
+/* GET projects page. */
+router.get('/projects', indexController.displayProjectsPage);
+/* GET Services page. */
+router.get('/services', indexController.displayServicesPage);
+/* GET Contact Us page. */
+router.get('/contact', indexController.displayContactPage);
 
-router.get('/aboutme', function(req, res, next) {
-  res.render('aboutme', { title: 'About me' });
-});
+/* GET Router for displaying the login page*/
+router.get('/login', indexController.displayLoginPage);
+/* POST Router for processing the Login Page*/
+router.post('/login', indexController.processLoginPage);
 
-router.get('/Projects', function(req, res, next) {
-  res.render('projects', { title: 'Projects' });
-});
+/* GET Router for displaying register Page*/
+router.get('/register', indexController.displayRegisterPage);
 
-router.get('/Services', function(req, res, next) {
-  res.render('services', { title: 'Services' });
-});
+/* POST Router for processing the register Page*/
+router.post('/register', indexController.processRegisterPage);
 
-router.get('/Contact', function(req, res, next) {
-  res.render('contact', { title: 'Contact' });
-});
+/* GET Router for processing the Login Page*/
+router.get('/logout', indexController.performLogout);
 
 module.exports = router;

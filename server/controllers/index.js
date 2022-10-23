@@ -11,17 +11,17 @@ module.exports.displayHomePage = (req,res,next)=>{
 }
 
 module.exports.displayAboutPage = (req,res,next)=>{
-    res.render('about',{title:'About', displayName:req.user?req.user.displayName:''});
+    res.render('aboutme',{title:'About', displayName:req.user?req.user.displayName:''});
 }
 
-module.exports.displayProductsPage = (req,res,next)=>{
-    res.render('Products',{title:'Products',displayName:req.user?req.user.displayName:''});
+module.exports.displayProjectsPage = (req,res,next)=>{
+    res.render('projects',{title:'Projects',displayName:req.user?req.user.displayName:''});
 }
 module.exports.displayServicesPage = (req,res,next)=>{
-    res.render('Services',{title:'Services',displayName:req.user?req.user.displayName:''});
+    res.render('services',{title:'Services',displayName:req.user?req.user.displayName:''});
 }
 module.exports.displayContactPage = (req,res,next)=>{
-    res.render('Contact',{title:'Contact', displayName:req.user?req.user.displayName:''});
+    res.render('contact',{title:'Contact', displayName:req.user?req.user.displayName:''});
 }
 module.exports.displayLoginPage = (req,res,next)=>{
     //check if the user is already logged in
@@ -61,7 +61,7 @@ module.exports.processLoginPage = (req,res,next)=>{
             {
                 return next(err);
             }
-            return res.redirect('/bookList');
+            return res.redirect('/businessContact');
         });
         
     })(req,res,next);
@@ -114,7 +114,7 @@ module.exports.processRegisterPage = (req,res,next)=>{
             // if no error exists, then registration is successful
             // redirect the user and authenticate them
             return passport.authenticate('local')(req,res,()=>{
-                res.redirect('/bookList')
+                res.redirect('/businessContact')
             });
         }
     });

@@ -1,38 +1,37 @@
 let express = require ('express');
 let router = express.Router();
 let mongoose = require('mongoose');
-let Book = require('../model/books');
-module.exports.displayBookList = (req,res,next)=>{
-    Book.find((err,bookList)=>{
+//let Book = require('../model/books');
+let BusinessContact = require('../model/businessContact');
+
+module.exports.displayContactList = (req,res,next)=>{
+    BusinessContact.find((err,businessContact)=>{
         if(err)
         {
         return console.error(err);
         }
         else
         {
-         //console.log(BookList);
-         res.render('book/list', 
-         {title:'Books', BookList:bookList,
+         res.render('businessContact/list', 
+         {title:'Contacts', BusinessContact:businessContact,
         displayName:req.user ? req.user.displayName:''});
         }
     });
 }
 
 module.exports.displayAddPage = (req,res,next)=>{
-    res.render('book/add',{title:'Add Book',
+    res.render('businessContact/add',{title:'Add Contact',
     displayName:req.user ? req.user.displayName:''})
 
 }
 
 module.exports.processAddPage = (req,res,next)=>{
-    let newBook = Book({
+    let newContact = BusinessContact({
         "name": req.body.name,
-        "author":req.body.author,
-        "published":req.body.published,
-        "description":req.body.description,
-        "price":req.body.price
+        "number":req.body.contactNumber,
+        "email":req.body.email
     });
-    Book.create(newBook,(err,Book)=>{
+    BusinessContact.create(newContact,(err,BusinessContact)=>{
         if(err)
         {
             console.log(err);
@@ -40,14 +39,14 @@ module.exports.processAddPage = (req,res,next)=>{
         }
         else
         {
-        res.redirect('/bookList');
+        res.redirect('/businessContact');
         }
     });
     }
     
-        module.exports.displayEditPage = (req,res,next)=>{
+        module.exports.displayUpdatePage = (req,res,next)=>{
             let id = req.params.id;
-            Book.findById(id,(err,bookToEdit)=>{
+            BusinessContact.findById(id,(err,contactToUpdate)=>{
                 if(err)
                 {
                     console.log(err);
@@ -55,25 +54,22 @@ module.exports.processAddPage = (req,res,next)=>{
                 }
                 else
                 {
-                    res.render('book/edit',{title:'Edit Book', book: bookToEdit,
+                    res.render('businessContact/Update',{title:'Update Contact', contact: contactToUpdate,
                     displayName:req.user ? req.user.displayName:''});
                 }
             
             });
         }
 
-        module.exports.processEditPage = (req,res,next)=>{
+        module.exports.processUpdatePage = (req,res,next)=>{
             let id = req.params.id
             console.log(req.body);
-            let updatedBook = Book({
-                "_id":id,
-                "name":req.body.name,
-                "author":req.body.author,
-                "published":req.body.published,
-                "description":req.body.description,
-                "price":req.body.price
+            let updatedContact = BusinessContact({ //Need to update the following
+                "name": req.body.name,
+                "number":req.body.contactNumber,
+                "email":req.body.email
             });
-            Book.updateOne({_id:id}, updatedBook,(err)=>{
+            BusinessContact.updateOne({_id:id}, updatedContact,(err)=>{
                 if(err)
                 {
                     console.log(err);
@@ -81,14 +77,14 @@ module.exports.processAddPage = (req,res,next)=>{
                 }
                 else
                 {
-                    res.redirect('/bookList');
+                    res.redirect('/businessContact');
                 }
             });
         }
 
         module.exports.performDelete= (req,res,next)=>{
             let id = req.params.id;
-            Book.remove({_id:id},(err)=>{
+            BusinessContact.remove({_id:id},(err)=>{
                 if(err)
                 {
                     console.log(err);
@@ -96,7 +92,7 @@ module.exports.processAddPage = (req,res,next)=>{
                 }
                 else
                 {
-                    res.redirect('/bookList');
+                    res.redirect('/businessContact');
                 }
                 
             });
