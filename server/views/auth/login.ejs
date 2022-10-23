@@ -1,5 +1,9 @@
+<%# login.ejs Wai Tung Wong 301222578 2022-10-21 %>
+
 <%-include ('../partials/header.ejs');%>
-  
+<%-include ('../partials/navbar.ejs');%>
+
+<body class="mainbody">
 <main class="container">
     <!--message Area-->
     <% if (messages.length>0){%>
@@ -24,8 +28,6 @@
                                 name="password"
                                 placeholder = "Enter password"
                                 id ="password" required>
-                                or
-                                <a href="/register">Register Here</a>
                                 </fieldset>
 
                                 <fieldset class="form-group text-right">
@@ -38,6 +40,7 @@
                     </div>
                 </div>
     </main>
+</body>
 
 <%-include ('../partials/footer.ejs');%>   
 

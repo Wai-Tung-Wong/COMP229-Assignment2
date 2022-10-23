@@ -1,3 +1,5 @@
+//businessContact.js Wai Tung Wong 301222578 2022-10-21
+
 let express = require('express');
 let router = express.Router();
 let mongoose = require('mongoose');
@@ -17,7 +19,7 @@ function requireAuth(req,res,next)
 //let Book = require('../model/books');
 //let bookController = require('../controllers/book');
 //GET ROUTE for the contact list page - READ OPERATION
-router.get('/',contactController.displayContactList);
+router.get('/',requireAuth,contactController.displayContactList);
 /*GET Route for displaying the Add page - CREATE operation*/
 router.get('/add',requireAuth,contactController.displayAddPage);
 

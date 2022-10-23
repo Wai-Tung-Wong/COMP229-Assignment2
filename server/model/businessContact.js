@@ -1,7 +1,9 @@
+//businessContact.js Wai Tung Wong 301222578 2022-10-21
+
 let mongoose = require('mongoose');
 let contactModel = mongoose.Schema({
     name: String,
-    phone: Number,
+    phone: String,
     email: String
 },
 

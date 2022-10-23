@@ -1,3 +1,5 @@
+//user.js Wai Tung Wong 301222578 2022-10-21
+
 //require modules for the user model
 let mongoose = require('mongoose');
 let passportLocalMongoose = require('passport-local-mongoose');

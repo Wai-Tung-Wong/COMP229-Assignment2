@@ -1,7 +1,8 @@
+//businessContact.js Wai Tung Wong 301222578 2022-10-21
+
 let express = require ('express');
 let router = express.Router();
 let mongoose = require('mongoose');
-//let Book = require('../model/books');
 let BusinessContact = require('../model/businessContact');
 
 module.exports.displayContactList = (req,res,next)=>{
@@ -28,7 +29,7 @@ module.exports.displayAddPage = (req,res,next)=>{
 module.exports.processAddPage = (req,res,next)=>{
     let newContact = BusinessContact({
         "name": req.body.name,
-        "number":req.body.contactNumber,
+        "phone":req.body.phone,
         "email":req.body.email
     });
     BusinessContact.create(newContact,(err,BusinessContact)=>{
@@ -65,10 +66,11 @@ module.exports.processAddPage = (req,res,next)=>{
             let id = req.params.id
             console.log(req.body);
             let updatedContact = BusinessContact({ //Need to update the following
+                "_id":id,
                 "name": req.body.name,
-                "number":req.body.contactNumber,
+                "phone":req.body.phone,
                 "email":req.body.email
-            });
+            },{strict: false});
             BusinessContact.updateOne({_id:id}, updatedContact,(err)=>{
                 if(err)
                 {

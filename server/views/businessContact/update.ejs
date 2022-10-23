@@ -1,7 +1,10 @@
+<%# update.ejs Wai Tung Wong 301222578 2022-10-21 %>
+
 <%-include ('../partials/header.ejs');%>
 <%-include ('../partials/navbar.ejs');%>
 
 <!--content for the Add page-->
+<body class="mainbody">
 <div class = "container">
     <div class = "row">
         <div class="offset-md-3 col-md-6">
@@ -12,15 +15,17 @@
                     <input type="text" class="form control"
                     id="nameTextField"
                     placeholder="Enter the Contact Name"
-                    name="name" required>
+                    name="name" 
+                    value="<%=contact.name%>" required>
                 </div>
 
                 <div class ="form group">
-                    <label for="numberTextField">Contact Number</label>
+                    <label for="phoneTextField">Contact Number</label>
                     <input type="text" class="form control"
-                    id="numberTextField"
+                    id="phoneTextField"
                     placeholder="Enter the Contact Number"
-                    name="number" required>
+                    name="phone" 
+                    value="<%=contact.phone%>" required>
                 </div>
 
                 <div class ="form group">
@@ -28,15 +33,16 @@
                     <input type="text" class="form control"
                     id="emailTextField"
                     placeholder="Enter the Contact Email"
-                    name="email" required>
+                    name="email" 
+                    value="<%=contact.email%>" required>
                 </div>
                 <button class = "btn btn-primary" type="submit"><i class = "fas fa-edit"></i>submit</button>
-                <a href="/businessContactList" class="btn btn-warning"><i class="fas fa-undo"></i>cancel</a> 
-            
+                <a href="/businessContact" class="btn btn-warning"><i class="fas fa-undo"></i>cancel</a> 
+                <a href="/businessContact/delete/<%=contact._id%>" class="btn btn-danger"><i class="fas fa-trash-alt"></i>Delete</a>
         </form>
         </div>
         </div>
     </div>
+</body>
 
 <%- include('../partials/footer'); -%>
-
