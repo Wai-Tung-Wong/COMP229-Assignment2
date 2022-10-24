@@ -55,7 +55,7 @@ module.exports.processAddPage = (req,res,next)=>{
                 }
                 else
                 {
-                    res.render('businessContact/Update',{title:'Update Contact', contact: contactToUpdate,
+                    res.render('businessContact/update',{title:'Update Contact', contact: contactToUpdate,
                     displayName:req.user ? req.user.displayName:''});
                 }
             
