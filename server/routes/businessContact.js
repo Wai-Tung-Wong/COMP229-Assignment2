@@ -15,9 +15,7 @@ function requireAuth(req,res,next)
     }
     next();
 }
-//connect to our book model
-//let Book = require('../model/books');
-//let bookController = require('../controllers/book');
+
 //GET ROUTE for the contact list page - READ OPERATION
 router.get('/',requireAuth,contactController.displayContactList);
 /*GET Route for displaying the Add page - CREATE operation*/
@@ -25,8 +23,6 @@ router.get('/add',requireAuth,contactController.displayAddPage);
 
 /*POST Route for processing the Add page - CREATE operation*/
 router.post('/add',requireAuth,contactController.processAddPage);
-
-
 
 /*GET Route for displaying the Update page - UPDATE operation*/
 router.get('/update/:id',requireAuth,contactController.displayUpdatePage);
